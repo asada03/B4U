@@ -150,7 +150,7 @@ class PayVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     @IBAction func payButtonPressed(_ sender: UIButton) {
         self.view.endEditing(true)
-        let message = "TF|\(walletIdTextField!.text!)|\(walletId)|\(toPayTextField!.text!)\n"
+        let message = "TF|\(walletId)|\(walletIdTextField!.text!)|\(toPayTextField!.text!)\n"
         let result = delegate!.messageToHashgraph(message)
 
         let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")

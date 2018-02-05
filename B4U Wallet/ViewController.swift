@@ -110,6 +110,11 @@ class ViewController: UIViewController, HashgraphMessages {
             destViewController.walletId = walletIdLabel!.text!
             destViewController.assetId = "\(Int(arc4random_uniform(10000000)))"
         }
+        else if segue.identifier == "buyAssetSegue" {
+            let destViewController = segue.destination as! BuyAssetTVC
+            destViewController.walletId = walletIdLabel!.text!
+            destViewController.delegate = self
+        }
     }
 
     // MARK: HashgraphMessages delegate
@@ -124,7 +129,7 @@ class ViewController: UIViewController, HashgraphMessages {
             switch client.send(string:message) {
             case .success:
                 guard let data = client.read(1024*10, timeout: 10) else {
-                    return "ERR"}
+                    return "ER|1\n"}
                 
                 if let response = String(bytes: data, encoding: .utf8) {
                     print("response: \(response)");
@@ -133,14 +138,14 @@ class ViewController: UIViewController, HashgraphMessages {
                 }
             case .failure(let error):
                 print(error)
-                return "ERR"
+                return "ER|2\n"
             }
         case .failure(let error):
             print(error)
-            return "ERR"
+            return "ER|3\n"
         }
         
-        return "ERR"
+        return "ER|4\n"
     }
     
     func setInfo(name: String, id: String, balance: String) {
