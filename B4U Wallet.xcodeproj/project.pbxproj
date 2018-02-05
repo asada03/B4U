@@ -13,6 +13,9 @@
 		4147D57A2013D46E00077A87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4147D5792013D46E00077A87 /* Assets.xcassets */; };
 		4147D57D2013D46E00077A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4147D57B2013D46E00077A87 /* LaunchScreen.storyboard */; };
 		41D280D120227D600084974F /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D280D020227D600084974F /* CreateAccountVC.swift */; };
+		41D280D32023907C0084974F /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D280D22023907C0084974F /* PayVC.swift */; };
+		41D281992026095D0084974F /* AddAssetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D281982026095D0084974F /* AddAssetVC.swift */; };
+		41D2819C2028B84E0084974F /* b4u.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D2819B2028B84E0084974F /* b4u.png */; };
 		41F6BB512013E11F0001E114 /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F6BB492013E11F0001E114 /* TCPClient.swift */; };
 		41F6BB522013E11F0001E114 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F6BB4A2013E11F0001E114 /* Info-tvOS.plist */; };
 		41F6BB532013E11F0001E114 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F6BB4B2013E11F0001E114 /* Info.plist */; };
@@ -32,6 +35,9 @@
 		4147D57C2013D46E00077A87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4147D57E2013D46E00077A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41D280D020227D600084974F /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		41D280D22023907C0084974F /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
+		41D281982026095D0084974F /* AddAssetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetVC.swift; sourceTree = "<group>"; };
+		41D2819B2028B84E0084974F /* b4u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b4u.png; sourceTree = "<group>"; };
 		41F6BB472013E11E0001E114 /* B4U Wallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "B4U Wallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		41F6BB482013E11F0001E114 /* SwiftSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftSocket.h; sourceTree = "<group>"; };
 		41F6BB492013E11F0001E114 /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPClient.swift; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 		4147D5662013D46E00077A87 = {
 			isa = PBXGroup;
 			children = (
+				41D2819A2028B8400084974F /* Resources */,
 				41F6BB462013E0E00001E114 /* SwiftSocket */,
 				4147D5712013D46E00077A87 /* B4U Wallet */,
 				4147D5702013D46E00077A87 /* Products */,
@@ -76,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				4147D5722013D46E00077A87 /* AppDelegate.swift */,
+				41D281982026095D0084974F /* AddAssetVC.swift */,
+				41D280D22023907C0084974F /* PayVC.swift */,
 				41D280D020227D600084974F /* CreateAccountVC.swift */,
 				4147D5742013D46E00077A87 /* ViewController.swift */,
 				4147D5762013D46E00077A87 /* Main.storyboard */,
@@ -84,6 +93,14 @@
 				4147D57E2013D46E00077A87 /* Info.plist */,
 			);
 			path = "B4U Wallet";
+			sourceTree = "<group>";
+		};
+		41D2819A2028B8400084974F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				41D2819B2028B84E0084974F /* b4u.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		41F6BB462013E0E00001E114 /* SwiftSocket */ = {
@@ -166,6 +183,7 @@
 				4147D57D2013D46E00077A87 /* LaunchScreen.storyboard in Resources */,
 				4147D57A2013D46E00077A87 /* Assets.xcassets in Resources */,
 				41F6BB522013E11F0001E114 /* Info-tvOS.plist in Resources */,
+				41D2819C2028B84E0084974F /* b4u.png in Resources */,
 				41F6BB532013E11F0001E114 /* Info.plist in Resources */,
 				4147D5782013D46E00077A87 /* Main.storyboard in Resources */,
 			);
@@ -181,10 +199,12 @@
 				41F6BB552013E11F0001E114 /* UDPClient.swift in Sources */,
 				41F6BB572013E11F0001E114 /* Socket.swift in Sources */,
 				4147D5752013D46E00077A87 /* ViewController.swift in Sources */,
+				41D280D32023907C0084974F /* PayVC.swift in Sources */,
 				41F6BB562013E11F0001E114 /* yudpsocket.c in Sources */,
 				4147D5732013D46E00077A87 /* AppDelegate.swift in Sources */,
 				41D280D120227D600084974F /* CreateAccountVC.swift in Sources */,
 				41F6BB542013E11F0001E114 /* Result.swift in Sources */,
+				41D281992026095D0084974F /* AddAssetVC.swift in Sources */,
 				41F6BB582013E11F0001E114 /* ytcpsocket.c in Sources */,
 				41F6BB512013E11F0001E114 /* TCPClient.swift in Sources */,
 			);
@@ -327,6 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YCE3342473;
 				INFOPLIST_FILE = "B4U Wallet/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.B4U-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -345,6 +366,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YCE3342473;
 				INFOPLIST_FILE = "B4U Wallet/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andressada.B4U-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";

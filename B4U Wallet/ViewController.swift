@@ -11,6 +11,7 @@ import UIKit
 protocol HashgraphMessages {
     func messageToHashgraph(_ message: String) -> String
     func setInfo(name:String, id:String, balance:String)
+    func setBalance(_ balance:String)
 }
 
 class ViewController: UIViewController, HashgraphMessages {
@@ -21,6 +22,7 @@ class ViewController: UIViewController, HashgraphMessages {
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var addAssetButton: UIButton!
+    @IBOutlet weak var balanceCheckButton: UIButton!
     @IBOutlet weak var walletIdLabel: UILabel!
     
     var qrImage: CIImage!
@@ -41,12 +43,19 @@ class ViewController: UIViewController, HashgraphMessages {
         self.addAssetButton.layer.masksToBounds = true
         self.addAssetButton.layer.borderWidth = 1.0
         
+        self.balanceCheckButton.layer.cornerRadius = 8.0
+        self.balanceCheckButton.layer.masksToBounds = true
+        self.balanceCheckButton.layer.borderWidth = 1.0
+        
         self.qrImageView.layer.borderWidth = 1.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if nameLabel != nil, walletIdLabel != nil {
-            let data = "\(walletIdLabel!.text!)|\(nameLabel!.text)".data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+            print("putting -\(walletIdLabel!.text!)|\(nameLabel!.text!)- into code")
+            let data = "\(walletIdLabel!.text!)|\(nameLabel!.text!)".data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             
             let filter = CIFilter(name: "CIAztecCodeGenerator")!
             
@@ -67,12 +76,15 @@ class ViewController: UIViewController, HashgraphMessages {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if walletIdLabel!.text == "id" {
             self.performSegue(withIdentifier: "newAccountSegue", sender: self)
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
 
@@ -86,6 +98,17 @@ class ViewController: UIViewController, HashgraphMessages {
             let destViewController = segue.destination as! CreateAccountVC
             destViewController.delegate = self
             destViewController.walletId = "\(Int(arc4random_uniform(10000000)))"
+        }
+        else if segue.identifier == "paySegue" {
+            let destViewController = segue.destination as! PayVC
+            destViewController.delegate = self
+            destViewController.walletId = walletIdLabel!.text!
+        }
+        else if segue.identifier == "addAssetSegue" {
+            let destViewController = segue.destination as! AddAssetVC
+            destViewController.delegate = self
+            destViewController.walletId = walletIdLabel!.text!
+            destViewController.assetId = "\(Int(arc4random_uniform(10000000)))"
         }
     }
 
@@ -123,10 +146,36 @@ class ViewController: UIViewController, HashgraphMessages {
     func setInfo(name: String, id: String, balance: String) {
         nameLabel!.text = name
         walletIdLabel!.text = id
-        balanceLabel!.text = balance
+        setBalance(balance)
+    }
+
+    func setBalance(_ balance: String) {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        balanceLabel!.text = numberFormatter.string(from: NSNumber(value:Int(balance)!))
     }
 
     // MARK: Actions
-    @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+    @IBAction func balanceCheckButtonPressed(_ sender: UIButton) {
+        let message = "BC|\(walletIdLabel!.text!)\n"
+        let result = messageToHashgraph(message)
+        
+        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
+        if resultArray.count >= 2 {
+            if resultArray[0] == "BC" {
+                setBalance(resultArray[1])
+            }
+            else if resultArray[0] == "ER" {
+                // create the alert
+                let alert = UIAlertController(title: "Error", message: "Hubo un error de comunicación. Verifique su conexión a Internet e intente de nuevo.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
     }
 }

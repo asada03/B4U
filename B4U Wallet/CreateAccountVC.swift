@@ -53,7 +53,7 @@ class CreateAccountVC: UIViewController {
             let result = delegate!.messageToHashgraph(message)
             messageLabel.text = result;
             
-            let resultArray = result.components(separatedBy: "|")
+            let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
             if resultArray.count >= 3 {
                 if resultArray[0] == "NW" {
                     delegate.setInfo(name: nameTextField!.text!, id: resultArray[1], balance: resultArray[2])
