@@ -10,15 +10,18 @@ import UIKit
 
 class AddAssetVC: UIViewController {
 
-    @IBOutlet weak var cameraView: UIView!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var addAssetButton: UIButton!
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var delegate: HashgraphMessages!
     var walletId = ""
     var assetId = ""
+    
+    var images = [UIImage]()
+    var imageIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,33 +54,80 @@ class AddAssetVC: UIViewController {
             self.view.frame.origin.y = 0
         }
     }
+    
+    private func setImage() {
+        let image = images[imageIndex]
+//        var rotation:CGFloat = 0.0
+//        
+//        switch image.imageOrientation {
+//        case .left:
+//            rotation = -.pi/2
+//            
+//        case .right:
+//            rotation = .pi/2
+//
+//        default:
+//            rotation = 0.0
+//        }
+//        
+//        let transform = CGAffineTransform.init(rotationAngle: rotation)
+//        imageView.layer.setAffineTransform(transform)
+        imageView.image = image
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "addImageSegue" {
+            let destinationVC = segue.destination as? CameraVC
+            
+            destinationVC?.delegate = self
+        }
     }
-    */
 
     // MARK: - Actions
     
     @IBAction func addAssetButtonPressed(_ sender: UIButton) {
-        let message = "NA|\(assetId)|\(walletId)|\(descriptionTextField!.text!)|\(priceTextField!.text!)\n"
+        let message = "NA|\(assetId)|\(walletId)|\(titleTextField!.text!)|\(priceTextField!.text!)\n"
         let result = delegate!.messageToHashgraph(message)
 
         let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
         if resultArray.count >= 2 {
             if resultArray[0] == "NA" {
                 delegate.setBalance(resultArray[1])
-                messageLabel!.text = "Transferencia Exitosa"
             }
             else if resultArray[0] == "ER" {
-                messageLabel!.text = resultArray[1]
             }
         }
 
+    }
+    @IBAction func swipeImageLeft(_ sender: UISwipeGestureRecognizer) {
+        if imageIndex + 1 < images.count {
+            imageIndex += 1
+            setImage()
+        }
+    }
+
+    @IBAction func swipeImageRigt(_ sender: UISwipeGestureRecognizer) {
+        if imageIndex - 1 >= 0 {
+            imageIndex -= 1
+            setImage()
+        }
+    }
+}
+
+extension AddAssetVC: AddImagesProtocol {
+    func addImage(_ image: UIImage) {
+        images.append(image)
+        
+        if imageView.image == nil {
+            imageIndex = 0
+            
+            setImage()
+        }
     }
 }

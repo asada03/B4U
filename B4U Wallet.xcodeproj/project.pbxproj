@@ -12,6 +12,8 @@
 		4147D5782013D46E00077A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4147D5762013D46E00077A87 /* Main.storyboard */; };
 		4147D57A2013D46E00077A87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4147D5792013D46E00077A87 /* Assets.xcassets */; };
 		4147D57D2013D46E00077A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4147D57B2013D46E00077A87 /* LaunchScreen.storyboard */; };
+		4155C155204A18DD00F67F9B /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4155C154204A18DD00F67F9B /* CameraController.swift */; };
+		418537052034A8CE00E587A1 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418537042034A8CE00E587A1 /* CameraVC.swift */; };
 		41D280D120227D600084974F /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D280D020227D600084974F /* CreateAccountVC.swift */; };
 		41D280D32023907C0084974F /* PayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D280D22023907C0084974F /* PayVC.swift */; };
 		41D281992026095D0084974F /* AddAssetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D281982026095D0084974F /* AddAssetVC.swift */; };
@@ -36,6 +38,8 @@
 		4147D5792013D46E00077A87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4147D57C2013D46E00077A87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4147D57E2013D46E00077A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4155C154204A18DD00F67F9B /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		418537042034A8CE00E587A1 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		41D280D020227D600084974F /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		41D280D22023907C0084974F /* PayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayVC.swift; sourceTree = "<group>"; };
 		41D281982026095D0084974F /* AddAssetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetVC.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 		4147D5712013D46E00077A87 /* B4U Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				4155C154204A18DD00F67F9B /* CameraController.swift */,
+				418537042034A8CE00E587A1 /* CameraVC.swift */,
 				41D2819D2028D6290084974F /* BuyAssetTVC.swift */,
 				41D281A12028E5B90084974F /* BuyVC.swift */,
 				4147D5722013D46E00077A87 /* AppDelegate.swift */,
@@ -211,6 +217,8 @@
 				4147D5732013D46E00077A87 /* AppDelegate.swift in Sources */,
 				41D281A22028E5B90084974F /* BuyVC.swift in Sources */,
 				41D280D120227D600084974F /* CreateAccountVC.swift in Sources */,
+				4155C155204A18DD00F67F9B /* CameraController.swift in Sources */,
+				418537052034A8CE00E587A1 /* CameraVC.swift in Sources */,
 				41F6BB542013E11F0001E114 /* Result.swift in Sources */,
 				41D281992026095D0084974F /* AddAssetVC.swift in Sources */,
 				41F6BB582013E11F0001E114 /* ytcpsocket.c in Sources */,

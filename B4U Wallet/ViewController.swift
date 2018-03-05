@@ -72,7 +72,6 @@ class ViewController: UIViewController, HashgraphMessages {
         }
 
         self.navigationController?.isNavigationBarHidden = true
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -119,7 +118,7 @@ class ViewController: UIViewController, HashgraphMessages {
 
     // MARK: HashgraphMessages delegate
     func messageToHashgraph(_ message: String) -> String {
-        let port: Int32 = 64104
+        let port: Int32 = 64105
         let client = TCPClient(address: "192.168.1.64", port: port)
         
         print ("sending message:\(message)")
