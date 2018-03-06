@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>241668400777-7m0fueg48r51hklcla3aari375dvgsoi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.241668400777-7m0fueg48r51hklcla3aari375dvgsoi</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBSkm25i2EmdI5VVSri3xuyiHSCGAYrQL4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>241668400777</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.andressada.B4U-Wallet</string>
+	<key>PROJECT_ID</key>
+	<string>b4uwallet</string>
+	<key>STORAGE_BUCKET</key>
+	<string>b4uwallet.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:241668400777:ios:11d351574b795dca</string>
+	<key>DATABASE_URL</key>
+	<string>https://b4uwallet.firebaseio.com</string>
+</dict>
+</plist>

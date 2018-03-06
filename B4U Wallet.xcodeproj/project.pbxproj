@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33E6867492401ACD6E626E74 /* Pods_B4U_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368E16806684638421FF801C /* Pods_B4U_Wallet.framework */; };
 		4147D5732013D46E00077A87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147D5722013D46E00077A87 /* AppDelegate.swift */; };
 		4147D5752013D46E00077A87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147D5742013D46E00077A87 /* ViewController.swift */; };
 		4147D5782013D46E00077A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4147D5762013D46E00077A87 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		41D2819C2028B84E0084974F /* b4u.png in Resources */ = {isa = PBXBuildFile; fileRef = 41D2819B2028B84E0084974F /* b4u.png */; };
 		41D2819E2028D6290084974F /* BuyAssetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2819D2028D6290084974F /* BuyAssetTVC.swift */; };
 		41D281A22028E5B90084974F /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D281A12028E5B90084974F /* BuyVC.swift */; };
+		41E3AA62204DEF5500E54FA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E3AA61204DEF5500E54FA9 /* GoogleService-Info.plist */; };
 		41F6BB512013E11F0001E114 /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F6BB492013E11F0001E114 /* TCPClient.swift */; };
 		41F6BB522013E11F0001E114 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F6BB4A2013E11F0001E114 /* Info-tvOS.plist */; };
 		41F6BB532013E11F0001E114 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F6BB4B2013E11F0001E114 /* Info.plist */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		368E16806684638421FF801C /* Pods_B4U_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_B4U_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4147D56F2013D46E00077A87 /* B4U Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B4U Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4147D5722013D46E00077A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4147D5742013D46E00077A87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		41D2819B2028B84E0084974F /* b4u.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b4u.png; sourceTree = "<group>"; };
 		41D2819D2028D6290084974F /* BuyAssetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAssetTVC.swift; sourceTree = "<group>"; };
 		41D281A12028E5B90084974F /* BuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
+		41E3AA61204DEF5500E54FA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41F6BB472013E11E0001E114 /* B4U Wallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "B4U Wallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		41F6BB482013E11F0001E114 /* SwiftSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftSocket.h; sourceTree = "<group>"; };
 		41F6BB492013E11F0001E114 /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPClient.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		41F6BB4E2013E11F0001E114 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
 		41F6BB4F2013E11F0001E114 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		41F6BB502013E11F0001E114 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
+		7591C54A81BB71FAC6C9E33A /* Pods-B4U Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B4U Wallet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet.debug.xcconfig"; sourceTree = "<group>"; };
+		BCAAA7F94DEC899FA056EB59 /* Pods-B4U Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B4U Wallet.release.xcconfig"; path = "Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +69,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E6867492401ACD6E626E74 /* Pods_B4U_Wallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2935E2F806926137141E588B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7591C54A81BB71FAC6C9E33A /* Pods-B4U Wallet.debug.xcconfig */,
+				BCAAA7F94DEC899FA056EB59 /* Pods-B4U Wallet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4147D5662013D46E00077A87 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +92,8 @@
 				41F6BB462013E0E00001E114 /* SwiftSocket */,
 				4147D5712013D46E00077A87 /* B4U Wallet */,
 				4147D5702013D46E00077A87 /* Products */,
+				2935E2F806926137141E588B /* Pods */,
+				ADE0A8716F06DD6A1D6E8C5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +121,7 @@
 				4147D5792013D46E00077A87 /* Assets.xcassets */,
 				4147D57B2013D46E00077A87 /* LaunchScreen.storyboard */,
 				4147D57E2013D46E00077A87 /* Info.plist */,
+				41E3AA61204DEF5500E54FA9 /* GoogleService-Info.plist */,
 			);
 			path = "B4U Wallet";
 			sourceTree = "<group>";
@@ -132,6 +151,14 @@
 			path = SwiftSocket;
 			sourceTree = "<group>";
 		};
+		ADE0A8716F06DD6A1D6E8C5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				368E16806684638421FF801C /* Pods_B4U_Wallet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4147D5812013D46E00077A87 /* Build configuration list for PBXNativeTarget "B4U Wallet" */;
 			buildPhases = (
+				EC6D31F96A24146D711714F4 /* [CP] Check Pods Manifest.lock */,
 				4147D56B2013D46E00077A87 /* Sources */,
 				4147D56C2013D46E00077A87 /* Frameworks */,
 				4147D56D2013D46E00077A87 /* Resources */,
+				772D40EFDE732AF48DEEC245 /* [CP] Embed Pods Frameworks */,
+				CA9CEE02D5DCE41D4D33AD51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,10 +228,71 @@
 				41D2819C2028B84E0084974F /* b4u.png in Resources */,
 				41F6BB532013E11F0001E114 /* Info.plist in Resources */,
 				4147D5782013D46E00077A87 /* Main.storyboard in Resources */,
+				41E3AA62204DEF5500E54FA9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		772D40EFDE732AF48DEEC245 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA9CEE02D5DCE41D4D33AD51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC6D31F96A24146D711714F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-B4U Wallet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4147D56B2013D46E00077A87 /* Sources */ = {
@@ -357,6 +448,7 @@
 		};
 		4147D5822013D46E00077A87 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7591C54A81BB71FAC6C9E33A /* Pods-B4U Wallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -376,6 +468,7 @@
 		};
 		4147D5832013D46E00077A87 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCAAA7F94DEC899FA056EB59 /* Pods-B4U Wallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
