@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseDatabase
-import FirebaseStorage
 
 protocol HashgraphMessages {
     func messageToHashgraph(_ message: String) -> String
@@ -29,7 +28,6 @@ class ViewController: UIViewController, HashgraphMessages {
     
     var qrImage: CIImage!
     lazy var ref = Database.database().reference()
-    lazy var storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()

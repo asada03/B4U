@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class BuyVC: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ammountLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var carrouselImageView: CarrouselImageView!
     
     var delegate: HashgraphMessages!
     var walletId = ""
-    var asset:B4UAsset!
+    var asset:DataSnapshot!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +30,13 @@ class BuyVC: UIViewController {
         self.buyButton.layer.masksToBounds = true
         self.buyButton.layer.borderWidth = 1.0
         
-        descriptionLabel.text = asset != nil ? asset.description : ""
-        ammountLabel.text = asset != nil ? asset.ammount : ""
+        if let value = asset?.value as? Dictionary<String,Any> {
+            descriptionLabel.text = value["description"] as? String? ?? ""
+            titleLabel.text = value["title"] as? String? ?? ""
+            ammountLabel.text = "\(value["price"] as? Float ?? 0.0)"
+        }
+        
+        loadImage(0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +44,21 @@ class BuyVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func loadImage(_ num:Int) {
+        let pathReference = Storage.storage().reference(withPath: "\(asset!.key)/\(num).jpg")
+        
+        // Download in memory with a maximum allowed size of 4MB (4 * 1024 * 1024 bytes)
+        pathReference.getData(maxSize: 4_194_304) { data, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let image = UIImage(data: data!) {
+                    self.carrouselImageView.addImage(image)
+                    self.loadImage(num+1)
+                }
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 

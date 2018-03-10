@@ -7,21 +7,22 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
     
-struct B4UAsset {
-    var key,wallet,description,ammount:String
-    
-}
-
 class BuyAssetTVC: UITableViewController {
 
     var delegate: HashgraphMessages!
     var walletId = ""
-    var assetList = [B4UAsset]()
     var chosenAsset = 0;
+    
+    var assets = [DataSnapshot]()
+    var images = [UIImage!]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let storage = Storage.storage()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,22 +30,22 @@ class BuyAssetTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let message = "AL|\n"
-        let result = delegate.messageToHashgraph(message)
-        
-        print("Result is:\(result)")
-        
-        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "¬")
-        if resultArray.count >= 2 {
-            if resultArray[0] == "AL" {
-                for i in (1..<resultArray.count) {
-                    let items = resultArray[i].components(separatedBy: "|")
-                    if items.count >= 4 {
-                        let asset = B4UAsset(key: items[0], wallet: items[1], description: items[2], ammount: items[3])
-                        assetList.append(asset)
-                    }
-                }
-            }
+//        let message = "AL|\n"
+//        let result = delegate.messageToHashgraph(message)
+//
+//        print("Result is:\(result)")
+//
+//        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "¬")
+//        if resultArray.count >= 2 {
+//            if resultArray[0] == "AL" {
+//                for i in (1..<resultArray.count) {
+//                    let items = resultArray[i].components(separatedBy: "|")
+//                    if items.count >= 4 {
+//                        let asset = B4UAsset(key: items[0], wallet: items[1], description: items[2], ammount: items[3])
+//                        assetList.append(asset)
+//                    }
+//                }
+//            }
 //            else if resultArray[0] == "ER" {
 //                // create the alert
 //                let alert = UIAlertController(title: "Error", message: "Hubo un error de comunicación. Verifique su conexión a Internet e intente de nuevo.", preferredStyle: UIAlertControllerStyle.alert)
@@ -55,8 +56,41 @@ class BuyAssetTVC: UITableViewController {
 //                // show the alert
 //                self.present(alert, animated: true, completion: nil)
 //            }
-        }
+//        }
 
+        let ref = Database.database().reference().child("Assets")
+        // Listen for new comments in the Firebase database
+        ref.observe(.childAdded, with: { (snapshot) -> Void in
+            self.assets.append(snapshot)
+            self.images.append(nil)
+            
+            let index = self.assets.count - 1
+            self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            
+            let pathReference = storage.reference(withPath: "\(snapshot.key)/0.jpg")
+            
+            // Download in memory with a maximum allowed size of 4MB (4 * 1024 * 1024 bytes)
+            pathReference.getData(maxSize: 4_194_304) { data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                } else {
+                    // Data for "images/island.jpg" is returned
+                    if index < self.images.count {
+                        self.images[index] = UIImage(data: data!)
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                    }
+                }
+            }
+        })
+        // Listen for deleted comments in the Firebase database
+        ref.observe(.childRemoved, with: { (snapshot) -> Void in
+            if let index = self.assets.index(of: snapshot) {
+                self.assets.remove(at: index)
+                self.assets.remove(at: index)
+                self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,18 +105,23 @@ class BuyAssetTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return assetList.count
+        return assets.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "assetCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "assetCell", for: indexPath) as! AssetTableViewCell
 
         // Configure the cell...
-        let description = cell.viewWithTag(1) as? UILabel
-        let ammount = cell.viewWithTag(2) as? UILabel
-        let asset = assetList[indexPath.row]
-        description!.text = asset.description
-        ammount!.text = asset.ammount
+        
+        let asset = assets[indexPath.row]
+        if let value = asset.value as? Dictionary<String,Any> {
+            cell.titleLabel.text = value["title"] as? String ?? ""
+            cell.priceLabel.text = "\(value["price"] as? Float ?? 0.0)"
+        }
+        
+        if let image = images[indexPath.row] {
+            cell.imageView?.image = image
+        }
 
         return cell
     }
@@ -139,11 +178,11 @@ class BuyAssetTVC: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "buySegue" {
-            if chosenAsset < assetList.count {
+            if chosenAsset < assets.count {
                 let destViewController = segue.destination as! BuyVC
                 destViewController.delegate = delegate
                 destViewController.walletId = walletId
-                destViewController.asset = assetList[chosenAsset]
+                destViewController.asset = assets[chosenAsset]
             }
         }
     }

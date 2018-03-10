@@ -22,6 +22,8 @@
 		41D2819E2028D6290084974F /* BuyAssetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2819D2028D6290084974F /* BuyAssetTVC.swift */; };
 		41D281A22028E5B90084974F /* BuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D281A12028E5B90084974F /* BuyVC.swift */; };
 		41E3AA62204DEF5500E54FA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41E3AA61204DEF5500E54FA9 /* GoogleService-Info.plist */; };
+		41E3AA67205217A000E54FA9 /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E3AA66205217A000E54FA9 /* AssetTableViewCell.swift */; };
+		41E3AA6920533A8800E54FA9 /* CarrouselImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E3AA6820533A8800E54FA9 /* CarrouselImageView.swift */; };
 		41F6BB512013E11F0001E114 /* TCPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F6BB492013E11F0001E114 /* TCPClient.swift */; };
 		41F6BB522013E11F0001E114 /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F6BB4A2013E11F0001E114 /* Info-tvOS.plist */; };
 		41F6BB532013E11F0001E114 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F6BB4B2013E11F0001E114 /* Info.plist */; };
@@ -50,6 +52,8 @@
 		41D2819D2028D6290084974F /* BuyAssetTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAssetTVC.swift; sourceTree = "<group>"; };
 		41D281A12028E5B90084974F /* BuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyVC.swift; sourceTree = "<group>"; };
 		41E3AA61204DEF5500E54FA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41E3AA66205217A000E54FA9 /* AssetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTableViewCell.swift; sourceTree = "<group>"; };
+		41E3AA6820533A8800E54FA9 /* CarrouselImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrouselImageView.swift; sourceTree = "<group>"; };
 		41F6BB472013E11E0001E114 /* B4U Wallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "B4U Wallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		41F6BB482013E11F0001E114 /* SwiftSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftSocket.h; sourceTree = "<group>"; };
 		41F6BB492013E11F0001E114 /* TCPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPClient.swift; sourceTree = "<group>"; };
@@ -114,10 +118,12 @@
 				41D281A12028E5B90084974F /* BuyVC.swift */,
 				4147D5722013D46E00077A87 /* AppDelegate.swift */,
 				41D281982026095D0084974F /* AddAssetVC.swift */,
+				41E3AA6820533A8800E54FA9 /* CarrouselImageView.swift */,
 				41D280D22023907C0084974F /* PayVC.swift */,
 				41D280D020227D600084974F /* CreateAccountVC.swift */,
 				4147D5742013D46E00077A87 /* ViewController.swift */,
 				4147D5762013D46E00077A87 /* Main.storyboard */,
+				41E3AA66205217A000E54FA9 /* AssetTableViewCell.swift */,
 				4147D5792013D46E00077A87 /* Assets.xcassets */,
 				4147D57B2013D46E00077A87 /* LaunchScreen.storyboard */,
 				4147D57E2013D46E00077A87 /* Info.plist */,
@@ -305,11 +311,13 @@
 				4147D5752013D46E00077A87 /* ViewController.swift in Sources */,
 				41D280D32023907C0084974F /* PayVC.swift in Sources */,
 				41F6BB562013E11F0001E114 /* yudpsocket.c in Sources */,
+				41E3AA67205217A000E54FA9 /* AssetTableViewCell.swift in Sources */,
 				4147D5732013D46E00077A87 /* AppDelegate.swift in Sources */,
 				41D281A22028E5B90084974F /* BuyVC.swift in Sources */,
 				41D280D120227D600084974F /* CreateAccountVC.swift in Sources */,
 				4155C155204A18DD00F67F9B /* CameraController.swift in Sources */,
 				418537052034A8CE00E587A1 /* CameraVC.swift in Sources */,
+				41E3AA6920533A8800E54FA9 /* CarrouselImageView.swift in Sources */,
 				41F6BB542013E11F0001E114 /* Result.swift in Sources */,
 				41D281992026095D0084974F /* AddAssetVC.swift in Sources */,
 				41F6BB582013E11F0001E114 /* ytcpsocket.c in Sources */,

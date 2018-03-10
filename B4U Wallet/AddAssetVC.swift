@@ -7,28 +7,31 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class AddAssetVC: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var addAssetButton: UIButton!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var keyboardHeightViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var carrouselImageView: CarrouselImageView!
+    
+    var activeTextField = UITextField()
     
     var delegate: HashgraphMessages!
     var walletId = ""
     var assetId = ""
     
-    var images = [UIImage]()
-    var imageIndex = 0
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
 
         self.addAssetButton.layer.cornerRadius = 8.0
         self.addAssetButton.layer.masksToBounds = true
@@ -43,9 +46,9 @@ class AddAssetVC: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y = -keyboardSize.height
-            }
+            let offset = min (carrouselImageView.frame.size.height, keyboardSize.height)
+            self.view.frame.origin.y = -offset
+            keyboardHeightViewConstraint.constant = max (keyboardHeightViewConstraint.constant, keyboardSize.height - offset)
         }
     }
     
@@ -54,27 +57,6 @@ class AddAssetVC: UIViewController {
             self.view.frame.origin.y = 0
         }
     }
-    
-    private func setImage() {
-        let image = images[imageIndex]
-//        var rotation:CGFloat = 0.0
-//        
-//        switch image.imageOrientation {
-//        case .left:
-//            rotation = -.pi/2
-//            
-//        case .right:
-//            rotation = .pi/2
-//
-//        default:
-//            rotation = 0.0
-//        }
-//        
-//        let transform = CGAffineTransform.init(rotationAngle: rotation)
-//        imageView.layer.setAffineTransform(transform)
-        imageView.image = image
-    }
-
     
     // MARK: - Navigation
 
@@ -92,42 +74,70 @@ class AddAssetVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func addAssetButtonPressed(_ sender: UIButton) {
-        let message = "NA|\(assetId)|\(walletId)|\(titleTextField!.text!)|\(priceTextField!.text!)\n"
-        let result = delegate!.messageToHashgraph(message)
+        activeTextField.endEditing(true)
+        let ref = Database.database().reference()
 
-        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
-        if resultArray.count >= 2 {
-            if resultArray[0] == "NA" {
-                delegate.setBalance(resultArray[1])
+        
+        let price: Float = {
+            guard let val = Float(priceTextField.text!) else { return 0.0 }
+            return val
+        }()
+        
+        let assetData = ["title": titleTextField.text!,
+            "description": descriptionTextView.text,
+            "price": price
+            ] as [String : Any]
+        let assetId = ref.child("Assets").childByAutoId()
+        
+        print ("id: \(assetId.key)")
+        assetId.setValue(assetData)
+
+        let storage = Storage.storage().reference().child(assetId.key)
+
+        for i in carrouselImageView.images.indices {
+            let imageStorageRef = storage.child("\(i).jpg")
+            let image = carrouselImageView.images[i]
+            if let data:Data = UIImageJPEGRepresentation(image, 1.0) {
+                // Handle operations with data here...
+                let _ = imageStorageRef.putData(data, metadata: nil) { (metadata, error) in
+                    guard let metadata = metadata else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    // Metadata contains file metadata such as size, content-type, and download URL.
+                    let downloadURL = metadata.downloadURL
+                    print (">>>>downloadURL:\(downloadURL()!.absoluteString)")
+                }
             }
-            else if resultArray[0] == "ER" {
-            }
-        }
 
-    }
-    @IBAction func swipeImageLeft(_ sender: UISwipeGestureRecognizer) {
-        if imageIndex + 1 < images.count {
-            imageIndex += 1
-            setImage()
         }
-    }
+//        let message = "NA|\(assetId)|\(walletId)|\(titleTextField!.text!)|\(priceTextField!.text!)\n"
+//        let result = delegate!.messageToHashgraph(message)
+//
+//        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
+//        if resultArray.count >= 2 {
+//            if resultArray[0] == "NA" {
+//                delegate.setBalance(resultArray[1])
+//            }
+//            else if resultArray[0] == "ER" {
+//            }
+//        }
 
-    @IBAction func swipeImageRigt(_ sender: UISwipeGestureRecognizer) {
-        if imageIndex - 1 >= 0 {
-            imageIndex -= 1
-            setImage()
-        }
     }
 }
 
 extension AddAssetVC: AddImagesProtocol {
     func addImage(_ image: UIImage) {
-        images.append(image)
-        
-        if imageView.image == nil {
-            imageIndex = 0
-            
-            setImage()
-        }
+        carrouselImageView.addImage(image)
     }
+}
+
+extension AddAssetVC : UITextFieldDelegate {
+    
+    // Assign the newly active text field to your activeTextField variable
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        self.activeTextField = textField
+    }
+    
 }
