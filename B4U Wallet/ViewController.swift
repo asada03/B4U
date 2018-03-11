@@ -111,7 +111,6 @@ class ViewController: UIViewController, HashgraphMessages {
             let destViewController = segue.destination as! AddAssetVC
             destViewController.delegate = self
             destViewController.walletId = walletIdLabel!.text!
-            destViewController.assetId = "\(Int(arc4random_uniform(10000000)))"
         }
         else if segue.identifier == "buyAssetSegue" {
             let destViewController = segue.destination as! BuyAssetTVC

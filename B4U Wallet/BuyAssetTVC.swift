@@ -57,6 +57,17 @@ class BuyAssetTVC: UITableViewController {
 //                self.present(alert, animated: true, completion: nil)
 //            }
 //        }
+        
+        func indexOfAsset(_ inAsset:DataSnapshot) -> Int!{
+            for i in self.assets.indices {
+                let asset = self.assets[i]
+                if asset.key == inAsset.key {
+                    return i
+                }
+            }
+            return nil
+        }
+
 
         let ref = Database.database().reference().child("Assets")
         // Listen for new comments in the Firebase database
@@ -85,10 +96,11 @@ class BuyAssetTVC: UITableViewController {
         })
         // Listen for deleted comments in the Firebase database
         ref.observe(.childRemoved, with: { (snapshot) -> Void in
-            if let index = self.assets.index(of: snapshot) {
+            if let index = indexOfAsset(snapshot){
                 self.assets.remove(at: index)
-                self.assets.remove(at: index)
-                self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: UITableViewRowAnimation.automatic)
+                self.images.remove(at: index)
+                //self.tableView.reloadData()
+                self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
             }
         })
     }

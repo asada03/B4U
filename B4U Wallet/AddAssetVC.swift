@@ -23,7 +23,6 @@ class AddAssetVC: UIViewController {
     
     var delegate: HashgraphMessages!
     var walletId = ""
-    var assetId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +84,8 @@ class AddAssetVC: UIViewController {
         
         let assetData = ["title": titleTextField.text!,
             "description": descriptionTextView.text,
-            "price": price
+            "price": price,
+            "wallet": walletId
             ] as [String : Any]
         let assetId = ref.child("Assets").childByAutoId()
         
@@ -111,17 +111,17 @@ class AddAssetVC: UIViewController {
             }
 
         }
-//        let message = "NA|\(assetId)|\(walletId)|\(titleTextField!.text!)|\(priceTextField!.text!)\n"
-//        let result = delegate!.messageToHashgraph(message)
-//
-//        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
-//        if resultArray.count >= 2 {
-//            if resultArray[0] == "NA" {
-//                delegate.setBalance(resultArray[1])
-//            }
-//            else if resultArray[0] == "ER" {
-//            }
-//        }
+        let message = "NA|\(assetId.key)|\(walletId)|\(titleTextField!.text!)|\(priceTextField!.text!)\n"
+        let result = delegate!.messageToHashgraph(message)
+
+        let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")
+        if resultArray.count >= 2 {
+            if resultArray[0] == "NA" {
+                delegate.setBalance(resultArray[1])
+            }
+            else if resultArray[0] == "ER" {
+            }
+        }
 
     }
 }

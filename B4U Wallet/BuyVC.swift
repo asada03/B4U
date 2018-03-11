@@ -78,9 +78,24 @@ class BuyVC: UIViewController {
             if resultArray[0] == "BA" {
                 delegate.setBalance(resultArray[1])
                 descriptionLabel!.text = "Compra Exitosa"
+                let storageRef = Storage.storage().reference(withPath: "\(asset!.key)/")
+                
+                storageRef.delete { error in
+                    if let error = error {
+                        print("error:\(error.localizedDescription)")
+                    } else {
+                        self.descriptionLabel!.text = "\n Imagenes Borradas"
+                    }
+                    
+                    let dbRef = Database.database().reference().child("Assets/\(self.asset!.key)")
+                    dbRef.removeValue()
+                    
+                }
             }
             else if resultArray[0] == "ER" {
                 descriptionLabel!.text = resultArray[1]
+                
+
             }
         }
 
