@@ -8,15 +8,17 @@
 
 import UIKit
 
-class CarrouselImageView: UIImageView {
+class CarrouselImageView: UIView {
 
     var images = [UIImage]()
     var imageIndex = 0
     var isImageSet = false
+    var firstPanTranslation:CGFloat = 0.0
+    var canPan = false
     
-    var originalX:CGFloat = 0.0
     var secondX:CGFloat = 0.0
     
+    lazy var mainImage = UIImageView(frame: self.bounds)
     lazy var secondImage = UIImageView(frame: self.bounds)
 
     /*
@@ -39,7 +41,8 @@ class CarrouselImageView: UIImageView {
     }
     
     private func setImage() {
-        image = images[imageIndex]
+        mainImage.image = images[imageIndex]
+        mainImage.frame = self.bounds
     }
     
     override init(frame: CGRect) {
@@ -50,24 +53,15 @@ class CarrouselImageView: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         isUserInteractionEnabled = true
-        contentMode = .scaleAspectFit
+        mainImage.contentMode = .scaleAspectFit
         secondImage.contentMode = .scaleAspectFit
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeImageLeft))
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeImageRigt))
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.panImage))
+        pan.delegate = self
         
-        swipeLeft.direction = .left
-        swipeRight.direction = .right
-        
-//        swipeLeft.delegate = self
-//        swipeRight.delegate = self
-//        pan.delegate = self
-        
-        addGestureRecognizer(swipeLeft)
-        addGestureRecognizer(swipeRight)
         addGestureRecognizer(pan)
         
+        self.addSubview(mainImage)
         self.addSubview(secondImage)
     }
 
@@ -87,27 +81,22 @@ class CarrouselImageView: UIImageView {
         }
     }
 
-    @objc func swipeImageLeft(_ sender: UISwipeGestureRecognizer) {
-        setImage(toRight: false)
-    }
-    
-    @objc func swipeImageRigt(_ sender: UISwipeGestureRecognizer) {
-        setImage(toRight: true)
-    }
-    
     @objc func panImage(_ recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.superview!)
         
         if recognizer.state == .began {
             self.secondImage.isHidden = false
             self.secondImage.alpha = 1.0
+            self.canPan = false
             
+            self.firstPanTranslation = translation.x
             
             if translation.x > 0 {
                 self.secondImage.frame = self.bounds
                 self.secondImage.frame.origin.x = -self.frame.size.width - self.frame.origin.x
                 if (imageIndex > 0) {
                     self.secondImage.image = self.images[imageIndex - 1]
+                    self.canPan = true
                 }
             }
             else {
@@ -115,46 +104,54 @@ class CarrouselImageView: UIImageView {
                 self.secondImage.frame.origin.x = self.frame.size.width + self.frame.origin.x
                 if (imageIndex < images.count - 1) {
                     self.secondImage.image = self.images[imageIndex + 1]
+                    self.canPan = true
                 }
             }
             
-            originalX = self.frame.origin.x
             secondX = secondImage.frame.origin.x
         }
         
-        self.frame.origin.x += translation.x
-        
-        if recognizer.state == .ended {
-            //var x:CGFloat = self.backgroundView.frame.origin.x
-            let diff = abs(self.originalX - self.frame.origin.x)
-            if (diff < self.frame.size.width / 2) {
-                UIView.animate(withDuration: 0.4,
-                               delay: 0,
-                               options: UIViewAnimationOptions.curveEaseOut,
-                               animations: {
-                                self.frame.origin.x = self.originalX
-                                self.secondImage.alpha = 0
-                                },
-                               completion: {  (value: Bool) in
-                                
+        if canPan {
+            self.mainImage.frame.origin.x += translation.x
+            self.secondImage.frame.origin.x += translation.x
+            
+            if recognizer.state == .ended {
+                //var x:CGFloat = self.backgroundView.frame.origin.x
+                
+                let velocity = recognizer.velocity(in: self).x
+                
+                if  velocity * self.firstPanTranslation < 0 ||  //pan ended in opposite direction of how it started
+                    (abs(velocity) < 1400.0 &&  abs(self.mainImage.frame.origin.x) < self.frame.size.width / 2) {
+                    UIView.animate(withDuration: 0.4,
+                                   delay: 0,
+                                   options: UIViewAnimationOptions.curveEaseOut,
+                                   animations: {
+                                    self.mainImage.frame.origin.x = 0
+                                    self.secondImage.frame.origin.x = self.secondX
+                                    self.secondImage.alpha = 0
+                    },
+                                   completion: {  (value: Bool) in
+                                    
                                     self.secondImage.isHidden = true
-                                })
+                    })
+                    
+                }
+                else {
+                    UIView.animate(withDuration: 0.4,
+                                   delay: 0,
+                                   options: UIViewAnimationOptions.curveEaseOut,
+                                   animations: {
+                                    self.mainImage.frame.origin.x = -self.secondX
+                                    self.secondImage.frame.origin.x = 0
+                    },
+                                   completion: {  (value: Bool) in
+                                    self.setImage(toRight: self.secondX < 0)
+                                    self.mainImage.frame.origin.x = 0
+                                    self.secondImage.isHidden = true
+                    })
+                }
                 
             }
-            else {
-                UIView.animate(withDuration: 0.4,
-                               delay: 0,
-                               options: UIViewAnimationOptions.curveEaseOut,
-                               animations: {
-                                self.frame.origin.x = -self.secondX
-                },
-                               completion: {  (value: Bool) in
-                                self.setImage(toRight: self.secondX < 0)
-                                self.frame.origin.x = self.originalX
-                                self.secondImage.isHidden = true
-                })
-            }
-            
         }
 
         recognizer.setTranslation(CGPoint.zero, in: self)
