@@ -71,6 +71,9 @@ class BuyVC: UIViewController {
 
     @IBAction func buyButtonPressed(_ sender: UIButton) {
         let message = "BA|\(walletId)|\(asset!.key)\n"
+        
+        // this is a request to the swirlds server
+        // to be replaced with calls to the Hedera API
         let result = delegate!.messageToHashgraph(message)
         
         let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")

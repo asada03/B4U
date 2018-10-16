@@ -29,6 +29,7 @@ class ViewController: UIViewController, HashgraphMessages {
     var qrImage: CIImage!
     lazy var ref = Database.database().reference()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -50,6 +51,114 @@ class ViewController: UIViewController, HashgraphMessages {
         self.balanceCheckButton.layer.borderWidth = 1.0
         
         self.qrImageView.layer.borderWidth = 1.0
+        
+        let accountID = HGCAccountID(shardId: 0, realmId: 0, accountId: 1001)
+        var fromAccount = HGCAccount()
+        fromAccount.updateAccountID(accountID)
+        let tokent = SKToken()
+        
+        self.getHederaAccountInfo(fromAccount:fromAccount, toAccount:fromAccount, toAccountName:"Andres", ammount:10, notes:"Hola", token:token, gas:10)
+    }
+    
+    func getHederaAccountInfo(fromAccount:HGCAccount, toAccount:HGCAccountID, toAccountName:String?, amount:UInt64, notes:String?, token:SCToken, gas:UInt64) {
+        
+        
+        var base = BaseOperation().type(of: init)()
+        base.node = HGCNodeV0.init("testnet41.hedera.com: 80",
+                                   HGCAccountID(shardId: 0, realmId: 0, accountId: 3))
+        var cryptoClient = base.cryptoClient
+        
+
+        let req = APIRequestBuilder.requestForGetAccountInfo(fromAccount: fromAccount, accountID: toAccount, node.accountID)
+        do {
+            let infoResponse = try cryptoClient.getAccountInfo(req)
+            print(infoResponse.textFormatString())
+            if infoResponse.cryptoGetInfo.hasAccountInfo {
+            }
+            else {
+                errorMessage = "Unable to fetch accountInfo"
+            }
+        }
+        catch {
+            errorMessage = "Someting went wrong, Please try later"
+        }
+    }
+
+    func hederaAccountBalance(forAccount:HGCAccount, toAccount:HGCAccountID, toAccountName:String?, amount:UInt64, notes:String?, token:SCToken, gas:UInt64) {
+        let req = APIRequestBuilder.requestForGetAccountInfo(fromAccount: fromAccount, node: node.accountID)
+        do {
+            let infoResponse = try cryptoClient.getAccountInfo(req)
+            Logger.instance.log(message: infoResponse.textFormatString(), event: .i)
+            if infoResponse.cryptoGetInfo.hasAccountInfo {
+            }
+            else {
+                errorMessage = "Unable to fetch accountInfo"
+            }
+        }
+        catch {
+            errorMessage = "Someting went wrong, Please try later"
+        }
+    }
+    
+    func getBalance() {
+        let RemoteHost = "testnet41.hedera.com"
+        
+        let request = RMTSimpleRequest()
+        request.responseSize = 10
+        request.fillUsername = true
+        request.fillOauthScope = true
+        
+        
+        // Example gRPC call using a generated proto client library:
+        
+        let service = RMTTestService(host: RemoteHost)
+        service.unaryCall(with: request) { response, error in
+            if let response = response {
+                NSLog("1. Finished successfully with response:\n\(response)")
+            } else {
+                NSLog("1. Finished with error: \(error!)")
+            }
+        }
+        
+        
+        // Same but manipulating headers:
+        
+        var RPC : GRPCProtoCall! // Needed to convince Swift to capture by reference (__block)
+        RPC = service.rpcToUnaryCall(with: request) { response, error in
+            if let response = response {
+                NSLog("2. Finished successfully with response:\n\(response)")
+            } else {
+                NSLog("2. Finished with error: \(error!)")
+            }
+            NSLog("2. Response headers: \(RPC.responseHeaders)")
+            NSLog("2. Response trailers: \(RPC.responseTrailers)")
+        }
+        
+        // TODO(jcanizales): Revert to using subscript syntax once XCode 8 is released.
+        RPC.requestHeaders["My-Header"] = "My value"
+        
+        RPC.start()
+        
+        
+        // Same example call using the generic gRPC client library:
+        
+        let method = GRPCProtoMethod(package: "grpc.testing", service: "TestService", method: "UnaryCall")!
+        
+        let requestsWriter = GRXWriter(value: request.data())
+        
+        let call = GRPCCall(host: RemoteHost, path: method.httpPath, requestsWriter: requestsWriter)!
+        
+        call.requestHeaders["My-Header"] = "My value"
+        
+        call.start(with: GRXWriteable { response, error in
+            if let response = response as? Data {
+                NSLog("3. Received response:\n\(try! RMTSimpleResponse(data: response))")
+            } else {
+                NSLog("3. Finished with error: \(error!)")
+            }
+            NSLog("3. Response headers: \(call.responseHeaders)")
+            NSLog("3. Response trailers: \(call.responseTrailers)")
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

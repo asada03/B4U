@@ -151,6 +151,10 @@ class PayVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     @IBAction func payButtonPressed(_ sender: UIButton) {
         self.view.endEditing(true)
         let message = "TF|\(walletId)|\(walletIdTextField!.text!)|\(toPayTextField!.text!)\n"
+        
+        // this is a request to the swirlds server
+        // to be replaced with calls to the Hedera API
+
         let result = delegate!.messageToHashgraph(message)
 
         let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")

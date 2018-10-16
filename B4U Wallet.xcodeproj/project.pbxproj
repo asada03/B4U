@@ -8,6 +8,49 @@
 
 /* Begin PBXBuildFile section */
 		33E6867492401ACD6E626E74 /* Pods_B4U_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368E16806684638421FF801C /* Pods_B4U_Wallet.framework */; };
+		413E054221757A4200AC9A50 /* Hedera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E054121757A4200AC9A50 /* Hedera.swift */; };
+		413E0544217592CE00AC9A50 /* ApiRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E0543217592CE00AC9A50 /* ApiRequestBuilder.swift */; };
+		413E0546217597B700AC9A50 /* HGCAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E0545217597B700AC9A50 /* HGCAccount.swift */; };
+		413E05D42176457E00AC9A50 /* Duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05A42176456200AC9A50 /* Duration.pb.swift */; };
+		413E05D62176457E00AC9A50 /* CryptoDeleteClaim.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05A62176456400AC9A50 /* CryptoDeleteClaim.pb.swift */; };
+		413E05D82176457E00AC9A50 /* FileGetContents.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05A82176456500AC9A50 /* FileGetContents.pb.swift */; };
+		413E05D92176457E00AC9A50 /* CryptoGetAccountRecords.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05A92176456500AC9A50 /* CryptoGetAccountRecords.pb.swift */; };
+		413E05DA2176457E00AC9A50 /* FileGetInfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05AA2176456600AC9A50 /* FileGetInfo.pb.swift */; };
+		413E05DB2176457E00AC9A50 /* SmartContractService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05AB2176456600AC9A50 /* SmartContractService.grpc.swift */; };
+		413E05DC2176457E00AC9A50 /* SmartContractService.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05AC2176456700AC9A50 /* SmartContractService.pb.swift */; };
+		413E05DD2176457E00AC9A50 /* TransactionGetRecord.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05AD2176456800AC9A50 /* TransactionGetRecord.pb.swift */; };
+		413E05DE2176457E00AC9A50 /* CryptoGetAccountBalance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05AE2176456800AC9A50 /* CryptoGetAccountBalance.pb.swift */; };
+		413E05DF2176457E00AC9A50 /* BasicTypes.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05AF2176456900AC9A50 /* BasicTypes.pb.swift */; };
+		413E05E02176457E00AC9A50 /* TransactionGetReceipt.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B02176456900AC9A50 /* TransactionGetReceipt.pb.swift */; };
+		413E05E12176457E00AC9A50 /* AdminDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B12176456A00AC9A50 /* AdminDelete.pb.swift */; };
+		413E05E22176457E00AC9A50 /* TransactionResponse.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B22176456B00AC9A50 /* TransactionResponse.pb.swift */; };
+		413E05E32176457E00AC9A50 /* QueryHeader.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B32176456B00AC9A50 /* QueryHeader.pb.swift */; };
+		413E05E52176457E00AC9A50 /* Transaction.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B52176456C00AC9A50 /* Transaction.pb.swift */; };
+		413E05E62176457E00AC9A50 /* FileService.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B62176456D00AC9A50 /* FileService.pb.swift */; };
+		413E05E72176457E00AC9A50 /* FileAppend.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B72176456E00AC9A50 /* FileAppend.pb.swift */; };
+		413E05E82176457E00AC9A50 /* Response.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B82176456E00AC9A50 /* Response.pb.swift */; };
+		413E05E92176457E00AC9A50 /* Timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05B92176456F00AC9A50 /* Timestamp.pb.swift */; };
+		413E05EA2176457E00AC9A50 /* TransactionReceipt.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05BA2176456F00AC9A50 /* TransactionReceipt.pb.swift */; };
+		413E05EB2176457E00AC9A50 /* CryptoGetClaim.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05BB2176457000AC9A50 /* CryptoGetClaim.pb.swift */; };
+		413E05EE2176457E00AC9A50 /* FileService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05BE2176457200AC9A50 /* FileService.grpc.swift */; };
+		413E05EF2176457E00AC9A50 /* CryptoDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05BF2176457200AC9A50 /* CryptoDelete.pb.swift */; };
+		413E05F02176457E00AC9A50 /* ResponseHeader.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C02176457300AC9A50 /* ResponseHeader.pb.swift */; };
+		413E05F22176457E00AC9A50 /* FileCreate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C22176457400AC9A50 /* FileCreate.pb.swift */; };
+		413E05F32176457E00AC9A50 /* CryptoTransfer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C32176457500AC9A50 /* CryptoTransfer.pb.swift */; };
+		413E05F42176457E00AC9A50 /* FileDelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C42176457500AC9A50 /* FileDelete.pb.swift */; };
+		413E05F52176457E00AC9A50 /* Query.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C52176457600AC9A50 /* Query.pb.swift */; };
+		413E05F62176457E00AC9A50 /* TransactionRecord.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C62176457600AC9A50 /* TransactionRecord.pb.swift */; };
+		413E05F72176457E00AC9A50 /* CryptoUpdate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C72176457700AC9A50 /* CryptoUpdate.pb.swift */; };
+		413E05F82176457E00AC9A50 /* CryptoAddClaim.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C82176457800AC9A50 /* CryptoAddClaim.pb.swift */; };
+		413E05F92176457E00AC9A50 /* CryptoService.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05C92176457800AC9A50 /* CryptoService.grpc.swift */; };
+		413E05FB2176457E00AC9A50 /* GetByKey.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05CB2176457900AC9A50 /* GetByKey.pb.swift */; };
+		413E05FC2176457E00AC9A50 /* CryptoService.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05CC2176457A00AC9A50 /* CryptoService.pb.swift */; };
+		413E05FD2176457E00AC9A50 /* CryptoCreate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05CD2176457B00AC9A50 /* CryptoCreate.pb.swift */; };
+		413E05FE2176457E00AC9A50 /* CryptoGetInfo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05CE2176457B00AC9A50 /* CryptoGetInfo.pb.swift */; };
+		413E05FF2176457E00AC9A50 /* FileUpdate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05CF2176457C00AC9A50 /* FileUpdate.pb.swift */; };
+		413E06002176457E00AC9A50 /* AdminUndelete.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05D02176457C00AC9A50 /* AdminUndelete.pb.swift */; };
+		413E06012176457E00AC9A50 /* CryptoGetStakers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05D12176457D00AC9A50 /* CryptoGetStakers.pb.swift */; };
+		413E06022176457E00AC9A50 /* GetBySolidityID.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E05D22176457D00AC9A50 /* GetBySolidityID.pb.swift */; };
 		4147D5732013D46E00077A87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147D5722013D46E00077A87 /* AppDelegate.swift */; };
 		4147D5752013D46E00077A87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147D5742013D46E00077A87 /* ViewController.swift */; };
 		4147D5782013D46E00077A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4147D5762013D46E00077A87 /* Main.storyboard */; };
@@ -36,6 +79,49 @@
 
 /* Begin PBXFileReference section */
 		368E16806684638421FF801C /* Pods_B4U_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_B4U_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		413E054121757A4200AC9A50 /* Hedera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hedera.swift; sourceTree = SOURCE_ROOT; };
+		413E0543217592CE00AC9A50 /* ApiRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestBuilder.swift; sourceTree = "<group>"; };
+		413E0545217597B700AC9A50 /* HGCAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGCAccount.swift; sourceTree = "<group>"; };
+		413E05A42176456200AC9A50 /* Duration.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Duration.pb.swift; sourceTree = "<group>"; };
+		413E05A62176456400AC9A50 /* CryptoDeleteClaim.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDeleteClaim.pb.swift; sourceTree = "<group>"; };
+		413E05A82176456500AC9A50 /* FileGetContents.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGetContents.pb.swift; sourceTree = "<group>"; };
+		413E05A92176456500AC9A50 /* CryptoGetAccountRecords.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoGetAccountRecords.pb.swift; sourceTree = "<group>"; };
+		413E05AA2176456600AC9A50 /* FileGetInfo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileGetInfo.pb.swift; sourceTree = "<group>"; };
+		413E05AB2176456600AC9A50 /* SmartContractService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartContractService.grpc.swift; sourceTree = "<group>"; };
+		413E05AC2176456700AC9A50 /* SmartContractService.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmartContractService.pb.swift; sourceTree = "<group>"; };
+		413E05AD2176456800AC9A50 /* TransactionGetRecord.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionGetRecord.pb.swift; sourceTree = "<group>"; };
+		413E05AE2176456800AC9A50 /* CryptoGetAccountBalance.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoGetAccountBalance.pb.swift; sourceTree = "<group>"; };
+		413E05AF2176456900AC9A50 /* BasicTypes.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTypes.pb.swift; sourceTree = "<group>"; };
+		413E05B02176456900AC9A50 /* TransactionGetReceipt.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionGetReceipt.pb.swift; sourceTree = "<group>"; };
+		413E05B12176456A00AC9A50 /* AdminDelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminDelete.pb.swift; sourceTree = "<group>"; };
+		413E05B22176456B00AC9A50 /* TransactionResponse.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResponse.pb.swift; sourceTree = "<group>"; };
+		413E05B32176456B00AC9A50 /* QueryHeader.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryHeader.pb.swift; sourceTree = "<group>"; };
+		413E05B52176456C00AC9A50 /* Transaction.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.pb.swift; sourceTree = "<group>"; };
+		413E05B62176456D00AC9A50 /* FileService.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.pb.swift; sourceTree = "<group>"; };
+		413E05B72176456E00AC9A50 /* FileAppend.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileAppend.pb.swift; sourceTree = "<group>"; };
+		413E05B82176456E00AC9A50 /* Response.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.pb.swift; sourceTree = "<group>"; };
+		413E05B92176456F00AC9A50 /* Timestamp.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timestamp.pb.swift; sourceTree = "<group>"; };
+		413E05BA2176456F00AC9A50 /* TransactionReceipt.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionReceipt.pb.swift; sourceTree = "<group>"; };
+		413E05BB2176457000AC9A50 /* CryptoGetClaim.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoGetClaim.pb.swift; sourceTree = "<group>"; };
+		413E05BE2176457200AC9A50 /* FileService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.grpc.swift; sourceTree = "<group>"; };
+		413E05BF2176457200AC9A50 /* CryptoDelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoDelete.pb.swift; sourceTree = "<group>"; };
+		413E05C02176457300AC9A50 /* ResponseHeader.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHeader.pb.swift; sourceTree = "<group>"; };
+		413E05C22176457400AC9A50 /* FileCreate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCreate.pb.swift; sourceTree = "<group>"; };
+		413E05C32176457500AC9A50 /* CryptoTransfer.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoTransfer.pb.swift; sourceTree = "<group>"; };
+		413E05C42176457500AC9A50 /* FileDelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDelete.pb.swift; sourceTree = "<group>"; };
+		413E05C52176457600AC9A50 /* Query.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.pb.swift; sourceTree = "<group>"; };
+		413E05C62176457600AC9A50 /* TransactionRecord.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionRecord.pb.swift; sourceTree = "<group>"; };
+		413E05C72176457700AC9A50 /* CryptoUpdate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUpdate.pb.swift; sourceTree = "<group>"; };
+		413E05C82176457800AC9A50 /* CryptoAddClaim.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoAddClaim.pb.swift; sourceTree = "<group>"; };
+		413E05C92176457800AC9A50 /* CryptoService.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoService.grpc.swift; sourceTree = "<group>"; };
+		413E05CB2176457900AC9A50 /* GetByKey.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetByKey.pb.swift; sourceTree = "<group>"; };
+		413E05CC2176457A00AC9A50 /* CryptoService.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoService.pb.swift; sourceTree = "<group>"; };
+		413E05CD2176457B00AC9A50 /* CryptoCreate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoCreate.pb.swift; sourceTree = "<group>"; };
+		413E05CE2176457B00AC9A50 /* CryptoGetInfo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoGetInfo.pb.swift; sourceTree = "<group>"; };
+		413E05CF2176457C00AC9A50 /* FileUpdate.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUpdate.pb.swift; sourceTree = "<group>"; };
+		413E05D02176457C00AC9A50 /* AdminUndelete.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUndelete.pb.swift; sourceTree = "<group>"; };
+		413E05D12176457D00AC9A50 /* CryptoGetStakers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoGetStakers.pb.swift; sourceTree = "<group>"; };
+		413E05D22176457D00AC9A50 /* GetBySolidityID.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetBySolidityID.pb.swift; sourceTree = "<group>"; };
 		4147D56F2013D46E00077A87 /* B4U Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B4U Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4147D5722013D46E00077A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4147D5742013D46E00077A87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,9 +175,57 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		413E04862175351600AC9A50 /* Protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				413E05B12176456A00AC9A50 /* AdminDelete.pb.swift */,
+				413E05D02176457C00AC9A50 /* AdminUndelete.pb.swift */,
+				413E05AF2176456900AC9A50 /* BasicTypes.pb.swift */,
+				413E05C82176457800AC9A50 /* CryptoAddClaim.pb.swift */,
+				413E05CD2176457B00AC9A50 /* CryptoCreate.pb.swift */,
+				413E05BF2176457200AC9A50 /* CryptoDelete.pb.swift */,
+				413E05A62176456400AC9A50 /* CryptoDeleteClaim.pb.swift */,
+				413E05AE2176456800AC9A50 /* CryptoGetAccountBalance.pb.swift */,
+				413E05A92176456500AC9A50 /* CryptoGetAccountRecords.pb.swift */,
+				413E05BB2176457000AC9A50 /* CryptoGetClaim.pb.swift */,
+				413E05CE2176457B00AC9A50 /* CryptoGetInfo.pb.swift */,
+				413E05D12176457D00AC9A50 /* CryptoGetStakers.pb.swift */,
+				413E05C92176457800AC9A50 /* CryptoService.grpc.swift */,
+				413E05CC2176457A00AC9A50 /* CryptoService.pb.swift */,
+				413E05C32176457500AC9A50 /* CryptoTransfer.pb.swift */,
+				413E05C72176457700AC9A50 /* CryptoUpdate.pb.swift */,
+				413E05A42176456200AC9A50 /* Duration.pb.swift */,
+				413E05B72176456E00AC9A50 /* FileAppend.pb.swift */,
+				413E05C22176457400AC9A50 /* FileCreate.pb.swift */,
+				413E05C42176457500AC9A50 /* FileDelete.pb.swift */,
+				413E05A82176456500AC9A50 /* FileGetContents.pb.swift */,
+				413E05AA2176456600AC9A50 /* FileGetInfo.pb.swift */,
+				413E05BE2176457200AC9A50 /* FileService.grpc.swift */,
+				413E05B62176456D00AC9A50 /* FileService.pb.swift */,
+				413E05CF2176457C00AC9A50 /* FileUpdate.pb.swift */,
+				413E05CB2176457900AC9A50 /* GetByKey.pb.swift */,
+				413E05D22176457D00AC9A50 /* GetBySolidityID.pb.swift */,
+				413E05C52176457600AC9A50 /* Query.pb.swift */,
+				413E05B32176456B00AC9A50 /* QueryHeader.pb.swift */,
+				413E05B82176456E00AC9A50 /* Response.pb.swift */,
+				413E05C02176457300AC9A50 /* ResponseHeader.pb.swift */,
+				413E05AB2176456600AC9A50 /* SmartContractService.grpc.swift */,
+				413E05AC2176456700AC9A50 /* SmartContractService.pb.swift */,
+				413E05B92176456F00AC9A50 /* Timestamp.pb.swift */,
+				413E05B52176456C00AC9A50 /* Transaction.pb.swift */,
+				413E05B02176456900AC9A50 /* TransactionGetReceipt.pb.swift */,
+				413E05AD2176456800AC9A50 /* TransactionGetRecord.pb.swift */,
+				413E05BA2176456F00AC9A50 /* TransactionReceipt.pb.swift */,
+				413E05C62176457600AC9A50 /* TransactionRecord.pb.swift */,
+				413E05B22176456B00AC9A50 /* TransactionResponse.pb.swift */,
+			);
+			path = Protobuf;
+			sourceTree = "<group>";
+		};
 		4147D5662013D46E00077A87 = {
 			isa = PBXGroup;
 			children = (
+				413E04862175351600AC9A50 /* Protobuf */,
 				41D2819A2028B8400084974F /* Resources */,
 				41F6BB462013E0E00001E114 /* SwiftSocket */,
 				4147D5712013D46E00077A87 /* B4U Wallet */,
@@ -112,6 +246,9 @@
 		4147D5712013D46E00077A87 /* B4U Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				413E054121757A4200AC9A50 /* Hedera.swift */,
+				413E0545217597B700AC9A50 /* HGCAccount.swift */,
+				413E0543217592CE00AC9A50 /* ApiRequestBuilder.swift */,
 				4155C154204A18DD00F67F9B /* CameraController.swift */,
 				418537042034A8CE00E587A1 /* CameraVC.swift */,
 				41D2819D2028D6290084974F /* BuyAssetTVC.swift */,
@@ -248,15 +385,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGRPC/SwiftGRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -271,9 +420,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-B4U Wallet/Pods-B4U Wallet-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -305,23 +457,66 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				413E05FB2176457E00AC9A50 /* GetByKey.pb.swift in Sources */,
 				41F6BB552013E11F0001E114 /* UDPClient.swift in Sources */,
 				41D2819E2028D6290084974F /* BuyAssetTVC.swift in Sources */,
+				413E05F82176457E00AC9A50 /* CryptoAddClaim.pb.swift in Sources */,
+				413E05EE2176457E00AC9A50 /* FileService.grpc.swift in Sources */,
+				413E05FD2176457E00AC9A50 /* CryptoCreate.pb.swift in Sources */,
 				41F6BB572013E11F0001E114 /* Socket.swift in Sources */,
+				413E05EF2176457E00AC9A50 /* CryptoDelete.pb.swift in Sources */,
+				413E05E52176457E00AC9A50 /* Transaction.pb.swift in Sources */,
 				4147D5752013D46E00077A87 /* ViewController.swift in Sources */,
 				41D280D32023907C0084974F /* PayVC.swift in Sources */,
+				413E05E12176457E00AC9A50 /* AdminDelete.pb.swift in Sources */,
+				413E05DF2176457E00AC9A50 /* BasicTypes.pb.swift in Sources */,
 				41F6BB562013E11F0001E114 /* yudpsocket.c in Sources */,
+				413E05DB2176457E00AC9A50 /* SmartContractService.grpc.swift in Sources */,
+				413E05FE2176457E00AC9A50 /* CryptoGetInfo.pb.swift in Sources */,
+				413E05E22176457E00AC9A50 /* TransactionResponse.pb.swift in Sources */,
+				413E05FF2176457E00AC9A50 /* FileUpdate.pb.swift in Sources */,
+				413E05E62176457E00AC9A50 /* FileService.pb.swift in Sources */,
+				413E05D92176457E00AC9A50 /* CryptoGetAccountRecords.pb.swift in Sources */,
+				413E05EB2176457E00AC9A50 /* CryptoGetClaim.pb.swift in Sources */,
+				413E05DE2176457E00AC9A50 /* CryptoGetAccountBalance.pb.swift in Sources */,
+				413E05F22176457E00AC9A50 /* FileCreate.pb.swift in Sources */,
 				41E3AA67205217A000E54FA9 /* AssetTableViewCell.swift in Sources */,
 				4147D5732013D46E00077A87 /* AppDelegate.swift in Sources */,
+				413E05DC2176457E00AC9A50 /* SmartContractService.pb.swift in Sources */,
+				413E0544217592CE00AC9A50 /* ApiRequestBuilder.swift in Sources */,
 				41D281A22028E5B90084974F /* BuyVC.swift in Sources */,
+				413E05D42176457E00AC9A50 /* Duration.pb.swift in Sources */,
+				413E05F42176457E00AC9A50 /* FileDelete.pb.swift in Sources */,
 				41D280D120227D600084974F /* CreateAccountVC.swift in Sources */,
+				413E05F72176457E00AC9A50 /* CryptoUpdate.pb.swift in Sources */,
 				4155C155204A18DD00F67F9B /* CameraController.swift in Sources */,
+				413E05F62176457E00AC9A50 /* TransactionRecord.pb.swift in Sources */,
 				418537052034A8CE00E587A1 /* CameraVC.swift in Sources */,
+				413E05D62176457E00AC9A50 /* CryptoDeleteClaim.pb.swift in Sources */,
+				413E05F52176457E00AC9A50 /* Query.pb.swift in Sources */,
+				413E05E82176457E00AC9A50 /* Response.pb.swift in Sources */,
+				413E05E02176457E00AC9A50 /* TransactionGetReceipt.pb.swift in Sources */,
+				413E05EA2176457E00AC9A50 /* TransactionReceipt.pb.swift in Sources */,
+				413E06012176457E00AC9A50 /* CryptoGetStakers.pb.swift in Sources */,
 				41E3AA6920533A8800E54FA9 /* CarrouselImageView.swift in Sources */,
+				413E05F92176457E00AC9A50 /* CryptoService.grpc.swift in Sources */,
 				41F6BB542013E11F0001E114 /* Result.swift in Sources */,
+				413E06002176457E00AC9A50 /* AdminUndelete.pb.swift in Sources */,
 				41D281992026095D0084974F /* AddAssetVC.swift in Sources */,
+				413E05E92176457E00AC9A50 /* Timestamp.pb.swift in Sources */,
+				413E05D82176457E00AC9A50 /* FileGetContents.pb.swift in Sources */,
+				413E05DD2176457E00AC9A50 /* TransactionGetRecord.pb.swift in Sources */,
+				413E05F02176457E00AC9A50 /* ResponseHeader.pb.swift in Sources */,
 				41F6BB582013E11F0001E114 /* ytcpsocket.c in Sources */,
+				413E05E32176457E00AC9A50 /* QueryHeader.pb.swift in Sources */,
+				413E05F32176457E00AC9A50 /* CryptoTransfer.pb.swift in Sources */,
+				413E0546217597B700AC9A50 /* HGCAccount.swift in Sources */,
 				41F6BB512013E11F0001E114 /* TCPClient.swift in Sources */,
+				413E05DA2176457E00AC9A50 /* FileGetInfo.pb.swift in Sources */,
+				413E05E72176457E00AC9A50 /* FileAppend.pb.swift in Sources */,
+				413E06022176457E00AC9A50 /* GetBySolidityID.pb.swift in Sources */,
+				413E05FC2176457E00AC9A50 /* CryptoService.pb.swift in Sources */,
+				413E054221757A4200AC9A50 /* Hedera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -112,6 +112,10 @@ class AddAssetVC: UIViewController {
 
         }
         let message = "NA|\(assetId.key)|\(walletId)|\(titleTextField!.text!)|\(priceTextField!.text!)\n"
+        
+        // this is a request to the swirlds server
+        // to be replaced with calls to the Hedera API
+
         let result = delegate!.messageToHashgraph(message)
 
         let resultArray = String(result[..<result.index(of: "\n")!]).components(separatedBy: "|")

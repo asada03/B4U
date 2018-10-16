@@ -50,6 +50,9 @@ class CreateAccountVC: UIViewController {
         if delegate != nil {
             messageLabel.text = "Creando Cuenta"
             let message = "NW|\(nameTextField.text!)|\(walletId)\n"
+            
+            // this is a request to the swirlds server
+            // to be replaced with calls to the Hedera API
             let result = delegate!.messageToHashgraph(message)
             messageLabel.text = result;
             
